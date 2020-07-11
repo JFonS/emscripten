@@ -1534,17 +1534,10 @@ var LibraryWebGPU = {
 
     return WebGPU.mgrSwapChain.create(swapChain);
   },
+
   wgpuSwapChainGetCurrentTextureView: function(swapChainId) {
     var swapChain = WebGPU.mgrSwapChain.get(swapChainId);
     return WebGPU.mgrTextureView.create(swapChain["getCurrentTexture"]()["createView"]());
-  },
-
-  // Unsupported (won't be implemented)
-
-  wgpuDeviceTick: function() {
-#if ASSERTIONS
-    assert(false, 'wgpuDeviceTick is unsupported (use requestAnimationFrame via html5.h instead)');
-#endif
   },
   wgpuSwapChainPresent: function() {
 #if ASSERTIONS
