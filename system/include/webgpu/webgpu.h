@@ -497,16 +497,6 @@ typedef struct WGPUBlendDescriptor {
     WGPUBlendFactor dstFactor;
 } WGPUBlendDescriptor;
 
-typedef struct WGPUBufferCopyView {
-    WGPUChainedStruct const * nextInChain;
-    WGPUBuffer buffer;
-    uint64_t offset;
-    uint32_t rowPitch;
-    uint32_t imageHeight;
-    uint32_t bytesPerRow;
-    uint32_t rowsPerImage;
-} WGPUBufferCopyView;
-
 typedef struct WGPUBufferDescriptor {
     WGPUChainedStruct const * nextInChain;
     char const * label;
@@ -693,6 +683,13 @@ typedef struct WGPUSwapChainDescriptor {
     WGPUPresentMode presentMode;
 } WGPUSwapChainDescriptor;
 
+typedef struct WGPUTextureDataLayout {
+    WGPUChainedStruct const * nextInChain;
+    uint64_t offset;
+    uint32_t bytesPerRow;
+    uint32_t rowsPerImage;
+} WGPUTextureDataLayout;
+
 typedef struct WGPUTextureViewDescriptor {
     WGPUChainedStruct const * nextInChain;
     char const * label;
@@ -725,6 +722,12 @@ typedef struct WGPUBindGroupLayoutDescriptor {
     uint32_t entryCount;
     WGPUBindGroupLayoutEntry const * entries;
 } WGPUBindGroupLayoutDescriptor;
+
+typedef struct WGPUBufferCopyView {
+    WGPUChainedStruct const * nextInChain;
+    WGPUTextureDataLayout layout;
+    WGPUBuffer buffer;
+} WGPUBufferCopyView;
 
 typedef struct WGPUColorStateDescriptor {
     WGPUChainedStruct const * nextInChain;
