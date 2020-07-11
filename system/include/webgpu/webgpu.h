@@ -605,9 +605,11 @@ typedef struct WGPURenderPassDepthStencilAttachmentDescriptor {
     WGPULoadOp depthLoadOp;
     WGPUStoreOp depthStoreOp;
     float clearDepth;
+    bool depthReadOnly;
     WGPULoadOp stencilLoadOp;
     WGPUStoreOp stencilStoreOp;
     uint32_t clearStencil;
+    bool stencilReadOnly;
 } WGPURenderPassDepthStencilAttachmentDescriptor;
 
 typedef struct WGPUSamplerDescriptor {
