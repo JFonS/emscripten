@@ -485,6 +485,7 @@ typedef struct WGPUBindGroupLayoutEntry {
     WGPUShaderStageFlags visibility;
     WGPUBindingType type;
     bool hasDynamicOffset;
+    uint64_t minBufferBindingSize;
     bool multisampled;
     WGPUTextureViewDimension viewDimension;
     WGPUTextureComponentType textureComponentType;
