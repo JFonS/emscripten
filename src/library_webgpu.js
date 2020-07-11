@@ -1600,14 +1600,21 @@ var LibraryWebGPU = {
 
   // Instance
 
+  wgpuCreateInstance: function() {
+#if ASSERTIONS
+    // Once implemented, Instance should create and own the object management tables.
+    assert(false, 'unimplemented (TODO)');
+#endif
+  },
+
   wgpuInstanceReference: function() {
 #if ASSERTIONS
-    assert(false, 'No WGPUInstance object should exist.');
+    assert(false, 'No WGPUInstance object should exist (TODO).');
 #endif
   },
   wgpuInstanceRelease: function() {
 #if ASSERTIONS
-    assert(false, 'No WGPUInstance object should exist.');
+    assert(false, 'No WGPUInstance object should exist (TODO).');
 #endif
   },
 
@@ -1637,7 +1644,31 @@ var LibraryWebGPU = {
     return WebGPU.mgrSurface.create(canvas);
   },
 
-  // wgpuDeviceCreateSwapChain + WGPUSwapChain
+  wgpuInstanceProcessEvents: function() {
+#if ASSERTIONS
+    assert(false, 'wgpuInstanceProcessEvents is unsupported (use requestAnimationFrame via html5.h instead)');
+#endif
+  },
+  wgpuInstanceRequestAdapter: function() {
+    assert(false, 'unimplemented (TODO)');
+  },
+
+  // WGPUAdapter
+
+  wgpuAdapterGetProperties: function() {
+    assert(false, 'unimplemented (TODO)');
+  },
+  wgpuAdapterRequestDevice: function() {
+    assert(false, 'unimplemented (TODO)');
+  },
+
+  // WGPUSurface
+
+  wgpuSurfaceGetPreferredFormat: function(surfaceId, adapterId, callback, userdata) {
+    assert(false, 'unimplemented (TODO)');
+  },
+
+  // WGPUSwapChain
 
   wgpuDeviceCreateSwapChain: function(deviceId, surfaceId, descriptor) {
     {{{ gpu.makeCheckDescriptor('descriptor') }}}
@@ -1674,6 +1705,14 @@ var LibraryWebGPU = {
   wgpuSwapChainPresent: function() {
 #if ASSERTIONS
     assert(false, 'wgpuSwapChainPresent is unsupported (use requestAnimationFrame via html5.h instead)');
+#endif
+  },
+
+  // wgpuGetProcAddress
+
+  wgpuGetProcAddress: function() {
+#if ASSERTIONS
+    assert(false, 'unimplemented (TODO)');
 #endif
   },
 };
