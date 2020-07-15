@@ -762,7 +762,7 @@ var LibraryWebGPU = {
   wgpuDeviceCreateQuerySet: function(deviceId, descriptor) {
     {{{ gpu.makeCheckDescriptor('descriptor') }}}
 
-    assert(false, 'unimplemented (TODO)');
+    abort('unimplemented (TODO)');
 
     var pipelineStatistics;
     var pipelineStatisticsCount =
@@ -1299,7 +1299,7 @@ var LibraryWebGPU = {
     var WGPUMapMode_Read = 1;
     if (bufferWrapper.mapMode !== WGPUMapMode_Read) {
 #if ASSERTIONS
-      assert(false, "GetConstMappedRange called, but buffer not mapped for reading");
+      abort("GetConstMappedRange called, but buffer not mapped for reading");
 #endif
       // TODO(kainino0x): Somehow inject a validation error?
       return 0;
@@ -1327,7 +1327,7 @@ var LibraryWebGPU = {
     var WGPUMapMode_Write = 1;
     if (bufferWrapper.mapMode !== WGPUMapMode_Write) {
 #if ASSERTIONS
-      assert(false, "GetMappedRange called, but buffer not mapped for writing");
+      abort("GetMappedRange called, but buffer not mapped for writing");
 #endif
       // TODO(kainino0x): Somehow inject a validation error?
       return 0;
@@ -1675,18 +1675,18 @@ var LibraryWebGPU = {
   wgpuCreateInstance: function() {
 #if ASSERTIONS
     // Once implemented, Instance should create and own the object management tables.
-    assert(false, 'unimplemented (TODO)');
+    abort('unimplemented (TODO)');
 #endif
   },
 
   wgpuInstanceReference: function() {
 #if ASSERTIONS
-    assert(false, 'No WGPUInstance object should exist (TODO).');
+    abort('No WGPUInstance object should exist (TODO).');
 #endif
   },
   wgpuInstanceRelease: function() {
 #if ASSERTIONS
-    assert(false, 'No WGPUInstance object should exist (TODO).');
+    abort('No WGPUInstance object should exist (TODO).');
 #endif
   },
 
@@ -1718,26 +1718,26 @@ var LibraryWebGPU = {
 
   wgpuInstanceProcessEvents: function() {
 #if ASSERTIONS
-    assert(false, 'wgpuInstanceProcessEvents is unsupported (use requestAnimationFrame via html5.h instead)');
+    abort('wgpuInstanceProcessEvents is unsupported (use requestAnimationFrame via html5.h instead)');
 #endif
   },
   wgpuInstanceRequestAdapter: function() {
-    assert(false, 'unimplemented (TODO)');
+    abort('unimplemented (TODO)');
   },
 
   // WGPUAdapter
 
   wgpuAdapterGetProperties: function() {
-    assert(false, 'unimplemented (TODO)');
+    abort('unimplemented (TODO)');
   },
   wgpuAdapterRequestDevice: function() {
-    assert(false, 'unimplemented (TODO)');
+    abort('unimplemented (TODO)');
   },
 
   // WGPUSurface
 
   wgpuSurfaceGetPreferredFormat: function(surfaceId, adapterId, callback, userdata) {
-    assert(false, 'unimplemented (TODO)');
+    abort('unimplemented (TODO)');
   },
 
   // WGPUSwapChain
@@ -1776,7 +1776,7 @@ var LibraryWebGPU = {
   },
   wgpuSwapChainPresent: function() {
 #if ASSERTIONS
-    assert(false, 'wgpuSwapChainPresent is unsupported (use requestAnimationFrame via html5.h instead)');
+    abort('wgpuSwapChainPresent is unsupported (use requestAnimationFrame via html5.h instead)');
 #endif
   },
 
@@ -1784,7 +1784,7 @@ var LibraryWebGPU = {
 
   wgpuGetProcAddress: function() {
 #if ASSERTIONS
-    assert(false, 'unimplemented (TODO)');
+    abort('unimplemented (TODO)');
 #endif
   },
 };
