@@ -1762,6 +1762,7 @@ var LibraryWebGPU = {
     return WebGPU.mgrTextureView.create(swapChain["getCurrentTexture"]()["createView"]());
   },
   wgpuSwapChainPresent: function() {
+    // TODO: This could probably be emulated with ASYNCIFY.
 #if ASSERTIONS
     abort('wgpuSwapChainPresent is unsupported (use requestAnimationFrame via html5.h instead)');
 #endif
@@ -1773,6 +1774,7 @@ var LibraryWebGPU = {
 #if ASSERTIONS
     abort('unimplemented (TODO)');
 #endif
+    return 0;
   },
 };
 
