@@ -560,9 +560,8 @@ var LibraryWebGPU = {
     var device = WebGPU["mgrDevice"].get(deviceId);
     var id = WebGPU.mgrBuffer.create(device["createBuffer"](desc));
     if (mappedAtCreation) {
-      var bufferWrapper = WebGPU.bufferMgr.objects[id];
-      var WGPUMapMode_Write = 1;
-      bufferWrapper.mapMode = WGPUMapMode_Write;
+      var bufferWrapper = WebGPU.mgrBuffer.objects[id];
+      bufferWrapper.mapMode = 2 /* WGPUMapMode_Write */;
       bufferWrapper.onUnmap = [];
     }
     return id;
@@ -1296,15 +1295,6 @@ var LibraryWebGPU = {
   wgpuBufferGetConstMappedRange: function(bufferId) {
     var bufferWrapper = WebGPU.mgrBuffer.objects[bufferId];
 
-    var WGPUMapMode_Read = 1;
-    if (bufferWrapper.mapMode !== WGPUMapMode_Read) {
-#if ASSERTIONS
-      abort("GetConstMappedRange called, but buffer not mapped for reading");
-#endif
-      // TODO(kainino0x): Somehow inject a validation error?
-      return 0;
-    }
-
     var mapped;
     try {
       mapped = bufferWrapper.object["getMappedRange"]();
@@ -1324,8 +1314,7 @@ var LibraryWebGPU = {
   wgpuBufferGetMappedRange: function(bufferId) {
     var bufferWrapper = WebGPU.mgrBuffer.objects[bufferId];
 
-    var WGPUMapMode_Write = 1;
-    if (bufferWrapper.mapMode !== WGPUMapMode_Write) {
+    if (bufferWrapper.mapMode !== 2 /* WGPUMapMode_Write */) {
 #if ASSERTIONS
       abort("GetMappedRange called, but buffer not mapped for writing");
 #endif
