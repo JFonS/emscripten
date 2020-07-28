@@ -761,8 +761,6 @@ var LibraryWebGPU = {
   wgpuDeviceCreateQuerySet: function(deviceId, descriptor) {
     {{{ gpu.makeCheckDescriptor('descriptor') }}}
 
-    abort('unimplemented (TODO)');
-
     var pipelineStatistics;
     var pipelineStatisticsCount =
       {{{ gpu.makeGetU32('descriptor', C_STRUCTS.WGPUQuerySetDescriptor.pipelineStatisticsCount) }}};
